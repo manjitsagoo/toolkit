@@ -34,17 +34,20 @@ var logger = new winston.Logger({
 });
 
 logger.add(winston.transports.DailyRotateFile, {
-    name: 'error-logs',
-    filename: 'logs/error.log',
+    name: 'info-logs',
+    level:'info',
+    filename: 'logs/info.log',
     datePattern: '.yyyy-MM-dd',
     maxsize: 20000
 });
 
 logger.add(winston.transports.DailyRotateFile, {
-    name: 'info-logs',
-    filename: 'logs/info.log',
+    name: 'error-logs',
+    level:'error',
+    filename: 'logs/error.log',
     datePattern: '.yyyy-MM-dd',
     maxsize: 20000
 });
+
 
 module.exports = logger;
